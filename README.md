@@ -65,7 +65,12 @@ Pontos técnicos relevantes:
 ├── server.js
 ├── robots.txt
 ├── sitemap.xml
+├── .htaccess
 ├── README.md
+├── alfajor/
+│   └── index.html
+├── delaflor/
+│   └── index.html
 ├── api/
 │   └── instagram-feed.js
 ├── dados/
@@ -219,6 +224,34 @@ Antes de publicar, conferir:
 - foco por teclado está visível;
 - HTML de produção não contém `localhost` fixo;
 - token do Instagram não aparece no código público.
+
+## SEO Para Buscas Por Alfajor e DeLaFlor
+
+Foram adicionadas duas páginas de apoio para ajudar mecanismos de busca a entenderem melhor a relação entre a marca e os termos usados pelos clientes:
+
+```text
+https://www.alfajordelaflor.com.br/alfajor/
+https://www.alfajordelaflor.com.br/delaflor/
+```
+
+Essas páginas reforçam termos como `alfajor`, `Alfajor`, `alfajor peruano`, `DeLaFlor`, `delaflor` e `De La Flor`, sem depender de JavaScript.
+
+Também foram ajustados:
+
+- título e descrição da home;
+- dados estruturados em JSON-LD;
+- Open Graph e Twitter Card;
+- `sitemap.xml` com as páginas de apoio;
+- redirecionamentos no `server.js` para URLs digitadas diretamente;
+- `.htaccess` como apoio caso a publicação passe pelo Apache da Hostinger.
+
+Depois de publicar, solicite a indexação das três URLs no Google Search Console:
+
+```text
+https://www.alfajordelaflor.com.br/
+https://www.alfajordelaflor.com.br/alfajor/
+https://www.alfajordelaflor.com.br/delaflor/
+```
 
 ## Segurança
 

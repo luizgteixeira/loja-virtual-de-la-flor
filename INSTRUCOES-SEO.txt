@@ -1,0 +1,17 @@
+PACOTE SEO - DE LA FLOR
+
+Como usar:
+1. Faça backup da raiz atual do site.
+2. Descompacte este ZIP na raiz do projeto/site.
+3. Confirme a substituição dos arquivos quando o sistema perguntar.
+4. Publique/reimplante na Hostinger.
+5. Teste no navegador:
+   - https://www.alfajordelaflor.com.br/
+   - https://www.alfajordelaflor.com.br/alfajor/
+   - https://www.alfajordelaflor.com.br/delaflor/
+   - https://www.alfajordelaflor.com.br/sitemap.xml
+
+Observação:
+Estas alterações ajudam o Google a entender melhor os termos alfajor, Alfajor, DeLaFlor e delaflor,
+mas nenhum ajuste técnico garante posição imediata nos resultados. Depois da publicação, peça indexação
+das URLs no Google Search Console.
