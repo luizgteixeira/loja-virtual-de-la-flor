@@ -1,0 +1,15 @@
+CORRECAO SEARCH CONSOLE - PRODUCT STRUCTURED DATA
+
+O Google Search Console apontou erro de dados estruturados do tipo Product:
+"Especifique offers, review ou aggregateRating".
+
+Como o site De La Flor trabalha com orcamento/contato e nao exibe preco fixo, a correcao aplicada foi remover o schema Product
+e manter dados estruturados mais adequados para a marca/site: Bakery, WebSite e WebPage.
+
+Como usar:
+1. Descompacte este ZIP na raiz de C:\sites\de-la-flor.
+2. Confirme a substituicao dos arquivos.
+3. Teste localmente.
+4. Faça commit e push para o repo usado pela Hostinger.
+5. Reimplante na Hostinger.
+6. No Google Search Console, clique em Validar correcao ou solicite nova indexacao das URLs principais.
