@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# HTTPS e dominio canonico com www.
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} !^www\.alfajordelaflor\.com\.br$ [NC]
+RewriteRule ^(.*)$ https://www.alfajordelaflor.com.br/$1 [R=301,L]
+
+# Variacoes de URL para as paginas de apoio.
+RedirectMatch 301 ^/(Alfajor|ALFAJOR)/?$ https://www.alfajordelaflor.com.br/alfajor/
+RedirectMatch 301 ^/(DeLaFlor|DELAFLOR|de-la-flor|De-La-Flor)/?$ https://www.alfajordelaflor.com.br/delaflor/
