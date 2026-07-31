@@ -3,7 +3,7 @@
   width: 100%;
   min-height: 540px;
   overflow: hidden;
-  background-color: #964f4c;
+  background-color: var(--color-header-bg);
   background-image:
     linear-gradient(rgba(150, 79, 76, 0.92), rgba(150, 79, 76, 0.92)),
     url("../imagens/galeria/rodape/path203.webp");
@@ -34,7 +34,7 @@
 }
 
 .rodape-de-la-flor .rodape-icone-link:focus-visible {
-  outline: 2px solid #ffffff;
+  outline: 2px solid var(--color-white);
   outline-offset: 4px;
 }
 
@@ -138,7 +138,7 @@
 
 .rodape-creditos {
   margin: 0;
-  color: #ffffff;
+  color: var(--color-white);
   font-family: "Lato", Arial, sans-serif;
   font-size: clamp(14px, 1.55vw, 18px);
   font-weight: 400;
@@ -148,7 +148,7 @@
 }
 
 .rodape-creditos-separador {
-  color: #ffffff;
+  color: var(--color-white);
   font-family: "Lato", Arial, sans-serif;
   font-size: clamp(14px, 1.55vw, 18px);
   font-weight: 400;
@@ -167,7 +167,7 @@
   font-size: clamp(14px, 1.55vw, 18px);
   font-weight: 400;
   line-height: 1.25;
-  color: #ffffff;
+  color: var(--color-white);
   text-transform: uppercase;
   text-decoration: none;
   letter-spacing: 0.5px;
@@ -183,7 +183,7 @@
   right: 0;
   bottom: -4px;
   height: 2px;
-  background-color: #f4ece5;
+  background-color: var(--color-cream);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.25s ease;
@@ -199,7 +199,7 @@
 .rodape-link-fabio:focus-visible,
 .rodape-link-luiz:hover,
 .rodape-link-luiz:focus-visible {
-  color: #f4ece5;
+  color: var(--color-cream);
   filter: drop-shadow(0 0 5px rgba(255, 223, 0, 0.35));
   transform: translateY(-2px);
 }
@@ -213,7 +213,7 @@
 
 .rodape-link-fabio:focus-visible,
 .rodape-link-luiz:focus-visible {
-  outline: 2px solid #ffffff;
+  outline: 2px solid var(--color-white);
   outline-offset: 4px;
 }
 

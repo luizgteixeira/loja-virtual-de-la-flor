@@ -1,8 +1,8 @@
 .online-shop-section {
   width: 100%;
   padding: clamp(50px, 5.4vw, 56px) 24px 30px;
-  background-color: #e7bbae;
-  color: #7f3330;
+  background-color: var(--color-sand);
+  color: var(--color-wine-dusty);
 }
 
 .online-shop-section__inner {
@@ -18,7 +18,7 @@
 
 .online-shop-section__title {
   margin: 0 0 8px;
-  color: #7f3330;
+  color: var(--color-wine-dusty);
   font-family: var(--font-display);
   font-size: clamp(32px, 3.2vw, 39px);
   font-weight: 400;
@@ -29,7 +29,7 @@
 .online-shop-section__subtitle {
   margin: 0 auto;
   max-width: 720px;
-  color: #7f3330;
+  color: var(--color-wine-dusty);
   font-family: var(--font-body);
   font-size: clamp(16px, 1.65vw, 19px);
   font-weight: 400;
@@ -68,7 +68,7 @@
   height: 84px;
   padding: 0;
   border: 0;
-  background-color: #e7bbae;
+  background-color: var(--color-sand);
   cursor: pointer;
 }
 
@@ -86,14 +86,14 @@
 }
 
 .online-shop-section__arrow:focus-visible {
-  outline: 2px solid #7f3330;
+  outline: 2px solid var(--color-wine-dusty);
   outline-offset: 6px;
 }
 
 .online-product-card {
   overflow: hidden;
   border-radius: 18px;
-  background-color: #ffffff;
+  background-color: var(--color-white);
   box-shadow: 0 18px 40px rgba(86, 3, 3, 0.10);
   scroll-snap-align: start;
 }
@@ -181,8 +181,8 @@
   height: 28px;
   border: 0;
   border-radius: 24px;
-  background: #FF9600;
-  color: #fff;
+  background: var(--color-shop-orange);
+  color: var(--color-white);
   cursor: pointer;
   font: 700 12px/1 "Lato", Arial, sans-serif;
   transition: filter 220ms ease, transform 220ms ease;
@@ -190,14 +190,14 @@
 
 .online-product-card__button:hover,
 .online-product-card__button:focus-visible {
-  background: #E88400;
+  background: var(--color-shop-orange-hover);
   box-shadow: 0 7px 14px rgba(86, 3, 3, 0.22);
   filter: brightness(1.07) saturate(1.08);
   transform: translateY(-2px) scale(1.04);
 }
 
 .online-product-card__button:focus-visible {
-  outline: 2px solid #7f3330;
+  outline: 2px solid var(--color-wine-dusty);
   outline-offset: 4px;
 }
 
@@ -217,7 +217,7 @@
   border: 0;
   border-radius: 999px;
   appearance: none;
-  background-color: #730502;
+  background-color: var(--color-shop-dot);
   cursor: pointer;
   transition: background-color 180ms ease, transform 180ms ease;
 }
@@ -229,12 +229,12 @@
 
 .online-shop-section__dot:hover,
 .online-shop-section__dot:focus-visible {
-  background-color: #8f201b;
+  background-color: var(--color-shop-dot-hover);
   transform: scale(1.18);
 }
 
 .online-shop-section__dot:focus-visible {
-  outline: 2px solid #7f3330;
+  outline: 2px solid var(--color-wine-dusty);
   outline-offset: 4px;
 }
 

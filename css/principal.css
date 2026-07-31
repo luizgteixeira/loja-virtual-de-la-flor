@@ -105,7 +105,7 @@
   border: 2px solid rgba(255, 255, 255, 0.92);
   border-radius: 24px;
   background-color: rgba(255, 255, 255, 0.92);
-  color: #7b2926;
+  color: var(--color-events-text);
   font-family: "Lato", sans-serif;
   font-size: clamp(20px, 1.9vw, 29px);
   font-weight: 900;
@@ -126,7 +126,7 @@
 .btn-custom:hover,
 .btn-custom:focus-visible {
   border-color: var(--color-header-bg);
-  background-color: #ffffff;
+  background-color: var(--color-white);
   transform: translateY(-2px);
   box-shadow: 0 22px 44px rgba(86, 3, 3, 0.2);
 }
@@ -185,7 +185,7 @@
 
 .back-to-top:hover,
 .back-to-top:focus-visible {
-  background-color: #7b2926;
+  background-color: var(--color-events-text);
   box-shadow: 0 16px 34px rgba(86, 3, 3, 0.30);
   transform: translateY(-4px) scale(1.04);
 }

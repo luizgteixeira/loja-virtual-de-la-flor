@@ -1,12 +1,35 @@
 :root {
-  --color-header-bg: #964f4c;
+  /* Vinho / marca */
+  --color-wine-deep: #560303;
   --color-events-text: #7b2926;
-  --color-history-bg: #8b504f;
-  --color-history-text: #f4ece5;
-  --color-history-link: #fde6d9;
-  --color-hero-bg: #c8b7af;
-  --color-events-cta-bg: #ef736b;
+  --color-wine-medium: #9f514e;
+  --color-wine-dusty: #7f3330;
+  --color-header-bg: #964f4c;
+
+  /* Neutros e apoio */
   --color-white: #ffffff;
+  --color-cream: #f4ece5;
+  --color-cream-soft: #f4ded8;
+  --color-blush: #eac2b5;
+  --color-blush-soft: #f2c7bd;
+  --color-rose-light: #f7e4dd;
+  --color-hero-bg: #c8b7af;
+  --color-sand: #e7bbae;
+  --color-surface-muted: #f2f2f2;
+
+  /* Coral / CTA */
+  --color-coral-cta: #ee786c;
+
+  /* Gradiente da seção de depoimentos */
+  --color-plum-start: #8f4b47;
+  --color-plum-mid: #a8776d;
+  --color-plum-end: #7c3c38;
+
+  /* Loja online (seção atualmente desativada) */
+  --color-shop-orange: #ff9600;
+  --color-shop-orange-hover: #e88400;
+  --color-shop-dot: #730502;
+  --color-shop-dot-hover: #8f201b;
 
   --font-body: "Lato", Arial, sans-serif;
   --font-display: "Tenor Sans", serif;

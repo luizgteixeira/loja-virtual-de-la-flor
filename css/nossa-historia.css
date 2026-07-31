@@ -5,7 +5,7 @@
   width: 100%;
   margin: 0;
   overflow: hidden;
-  background-color: #9f514e;
+  background-color: var(--color-wine-medium);
 }
 
 .history-section__stage {
@@ -46,7 +46,7 @@
   margin: 0 0 28px;
   font-size: 34px;
   text-transform: uppercase;
-  color: #eac2b5;
+  color: var(--color-blush);
   font-weight: 400;
   font-family: "Tenor Sans", serif;
   line-height: 1.28;
@@ -57,7 +57,7 @@
   width: 315px;
   height: 370px;
   font-size: 16px;
-  color: #ffffff;
+  color: var(--color-white);
   font-weight: 400;
   font-family: "Lato", Arial, sans-serif;
   line-height: 1.18;
@@ -80,7 +80,7 @@
   font-size: 12px;
   font-weight: 700;
   line-height: 1.2;
-  color: #ffffff;
+  color: var(--color-white);
 }
 
 .history-section__article-text a {
@@ -92,12 +92,12 @@
 
 .history-section__article-text a:hover,
 .history-section__article-text a:focus-visible {
-  color: #f2c7bd;
+  color: var(--color-blush-soft);
   text-decoration: none;
 }
 
 .history-section__article-text a:focus-visible {
-  outline: 2px solid #ffffff;
+  outline: 2px solid var(--color-white);
   outline-offset: 3px;
 }
 

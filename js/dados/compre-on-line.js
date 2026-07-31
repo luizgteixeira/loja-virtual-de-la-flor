@@ -1,14 +1,6 @@
 const onlineProductCards = document.querySelectorAll(".online-product-card");
 const onlineProductButtons = document.querySelectorAll(".online-product-card__button[data-target]");
-const onlineShopCarousel = document.querySelector(".online-shop-section__carousel");
-const onlineShopTrack = document.querySelector(".online-shop-section__grid");
-const onlineShopPreviousButton = document.querySelector(".online-shop-section__arrow--previous");
-const onlineShopNextButton = document.querySelector(".online-shop-section__arrow--next");
-const onlineShopDots = document.querySelector(".online-shop-section__dots");
 const productZoomScale = 3.35;
-const carouselInterval = 4500;
-let currentCarouselIndex = 0;
-let carouselTimer = null;
 
 const setProductZoomPosition = (card, media, image, clientX, clientY) => {
   const rect = media.getBoundingClientRect();
@@ -27,112 +19,6 @@ const setProductZoomPosition = (card, media, image, clientX, clientY) => {
 
 const toggleProductZoom = (card, isActive) => {
   card.classList.toggle("online-product-card--zoom-active", isActive);
-};
-
-const getCardsPerView = () => {
-  if (!onlineShopTrack) {
-    return 1;
-  }
-
-  const cardsPerView = Number.parseInt(getComputedStyle(onlineShopTrack).getPropertyValue("--cards-per-view"), 10);
-  return Number.isNaN(cardsPerView) ? 1 : cardsPerView;
-};
-
-const getMaxCarouselIndex = () => {
-  return Math.max(onlineProductCards.length - getCardsPerView(), 0);
-};
-
-const getCarouselStep = () => {
-  const firstCard = onlineProductCards[0];
-
-  if (!onlineShopTrack || !firstCard) {
-    return 0;
-  }
-
-  const trackStyles = getComputedStyle(onlineShopTrack);
-  const gap = Number.parseFloat(trackStyles.columnGap || trackStyles.gap) || 0;
-  return firstCard.getBoundingClientRect().width + gap;
-};
-
-const updateCarouselDots = () => {
-  if (!onlineShopDots) {
-    return;
-  }
-
-  const dots = onlineShopDots.querySelectorAll(".online-shop-section__dot");
-
-  dots.forEach((dot, index) => {
-    const isActive = index === currentCarouselIndex;
-    dot.classList.toggle("online-shop-section__dot--active", isActive);
-    dot.toggleAttribute("aria-current", isActive);
-  });
-};
-
-const goToCarouselSlide = (index) => {
-  if (!onlineShopTrack) {
-    return;
-  }
-
-  const maxIndex = getMaxCarouselIndex();
-  currentCarouselIndex = Math.min(Math.max(index, 0), maxIndex);
-  onlineShopTrack.scrollTo({
-    left: getCarouselStep() * currentCarouselIndex,
-    behavior: "smooth",
-  });
-  updateCarouselDots();
-};
-
-const stopCarouselAutoplay = () => {
-  if (!carouselTimer) {
-    return;
-  }
-
-  window.clearInterval(carouselTimer);
-  carouselTimer = null;
-};
-
-const startCarouselAutoplay = () => {
-  stopCarouselAutoplay();
-
-  if (getMaxCarouselIndex() === 0) {
-    return;
-  }
-
-  carouselTimer = window.setInterval(() => {
-    const nextIndex = currentCarouselIndex >= getMaxCarouselIndex() ? 0 : currentCarouselIndex + 1;
-    goToCarouselSlide(nextIndex);
-  }, carouselInterval);
-};
-
-const resetCarouselAutoplay = () => {
-  stopCarouselAutoplay();
-  startCarouselAutoplay();
-};
-
-const renderCarouselDots = () => {
-  if (!onlineShopDots) {
-    return;
-  }
-
-  const slidesCount = getMaxCarouselIndex() + 1;
-  onlineShopDots.innerHTML = "";
-
-  for (let index = 0; index < slidesCount; index += 1) {
-    const dot = document.createElement("button");
-    dot.className = "online-shop-section__dot";
-    dot.type = "button";
-    dot.dataset.slideIndex = String(index);
-    dot.setAttribute("aria-label", `Mostrar grupo de produtos ${index + 1}`);
-
-    dot.addEventListener("click", () => {
-      goToCarouselSlide(index);
-      resetCarouselAutoplay();
-    });
-
-    onlineShopDots.appendChild(dot);
-  }
-
-  updateCarouselDots();
 };
 
 onlineProductCards.forEach((card) => {
@@ -180,33 +66,16 @@ onlineProductButtons.forEach((button) => {
   });
 });
 
-if (onlineShopTrack && onlineProductCards.length > 0) {
-  renderCarouselDots();
-  goToCarouselSlide(0);
-  startCarouselAutoplay();
-
-  onlineShopPreviousButton?.addEventListener("click", () => {
-    const previousIndex = currentCarouselIndex <= 0 ? getMaxCarouselIndex() : currentCarouselIndex - 1;
-    goToCarouselSlide(previousIndex);
-    resetCarouselAutoplay();
-  });
-
-  onlineShopNextButton?.addEventListener("click", () => {
-    const nextIndex = currentCarouselIndex >= getMaxCarouselIndex() ? 0 : currentCarouselIndex + 1;
-    goToCarouselSlide(nextIndex);
-    resetCarouselAutoplay();
-  });
-
-  onlineShopCarousel?.addEventListener("mouseenter", stopCarouselAutoplay);
-  onlineShopCarousel?.addEventListener("mouseleave", startCarouselAutoplay);
-  onlineShopCarousel?.addEventListener("focusin", stopCarouselAutoplay);
-  onlineShopCarousel?.addEventListener("focusout", startCarouselAutoplay);
-
-  window.addEventListener("resize", () => {
-    const maxIndex = getMaxCarouselIndex();
-    currentCarouselIndex = Math.min(currentCarouselIndex, maxIndex);
-    renderCarouselDots();
-    goToCarouselSlide(currentCarouselIndex);
-    resetCarouselAutoplay();
-  });
-}
+createCarousel({
+  carouselSelector: ".online-shop-section__carousel",
+  trackSelector: ".online-shop-section__grid",
+  itemSelector: ".online-product-card",
+  prevSelector: ".online-shop-section__arrow--previous",
+  nextSelector: ".online-shop-section__arrow--next",
+  dotsSelector: ".online-shop-section__dots",
+  perViewProperty: "--cards-per-view",
+  dotClass: "online-shop-section__dot",
+  activeDotClass: "online-shop-section__dot--active",
+  dotAriaLabel: (index) => `Mostrar grupo de produtos ${index + 1}`,
+  interval: 4500,
+});

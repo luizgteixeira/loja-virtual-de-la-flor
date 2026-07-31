@@ -6,8 +6,8 @@
   background:
     radial-gradient(circle at 12% 18%, rgba(255, 234, 224, 0.24), transparent 28%),
     radial-gradient(circle at 88% 82%, rgba(86, 3, 3, 0.24), transparent 30%),
-    linear-gradient(135deg, #8f4b47 0%, #a8776d 46%, #7c3c38 100%);
-  color: #ffffff;
+    linear-gradient(135deg, var(--color-plum-start) 0%, var(--color-plum-mid) 46%, var(--color-plum-end) 100%);
+  color: var(--color-white);
   isolation: isolate;
 }
 
@@ -66,7 +66,7 @@
   border: 1px solid rgba(255, 255, 255, 0.34);
   border-radius: 999px;
   background-color: rgba(255, 255, 255, 0.11);
-  color: #f7e4dd;
+  color: var(--color-rose-light);
   font-family: "Lato", Arial, sans-serif;
   font-size: 11px;
   font-weight: 700;
@@ -77,7 +77,7 @@
 
 .testimonials-section__title {
   margin: 0 0 12px;
-  color: #ffffff;
+  color: var(--color-white);
   font-family: "Tenor Sans", serif;
   font-size: clamp(36px, 4.8vw, 58px);
   font-weight: 400;
@@ -165,7 +165,7 @@
 }
 
 .testimonials-section__arrow:focus-visible {
-  outline: 2px solid #f4ded8;
+  outline: 2px solid var(--color-cream-soft);
   outline-offset: 6px;
 }
 
@@ -242,7 +242,7 @@
 }
 
 .testimonial-card__name {
-  color: #560303;
+  color: var(--color-wine-deep);
   font-family: "Lato", Arial, sans-serif;
   font-size: 20px;
   font-weight: 700;
@@ -273,7 +273,7 @@
   width: 100%;
   min-height: 268px;
   margin: 0;
-  color: #560303;
+  color: var(--color-wine-deep);
   font-family: "Lato", Arial, sans-serif;
   font-size: clamp(15px, 1.25vw, 17px);
   font-weight: 400;
@@ -288,7 +288,7 @@
   background: linear-gradient(180deg, rgba(238, 120, 108, 0.24), rgba(242, 199, 189, 0.48));
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
-  color: #7b2926;
+  color: var(--color-events-text);
   font-weight: 700;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.36);
 }
@@ -309,7 +309,7 @@
   border: 0;
   border-radius: 999px;
   appearance: none;
-  background-color: #f4ded8;
+  background-color: var(--color-cream-soft);
   cursor: pointer;
   opacity: 0.58;
   transition: background-color 180ms ease, opacity 180ms ease, transform 180ms ease, width 180ms ease;
@@ -322,13 +322,13 @@
 
 .testimonials-section__dot:hover,
 .testimonials-section__dot:focus-visible {
-  background-color: #ffffff;
+  background-color: var(--color-white);
   opacity: 1;
   transform: scale(1.12);
 }
 
 .testimonials-section__dot:focus-visible {
-  outline: 2px solid #f4ded8;
+  outline: 2px solid var(--color-cream-soft);
   outline-offset: 4px;
 }
 
