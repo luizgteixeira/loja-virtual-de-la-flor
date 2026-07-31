@@ -9,6 +9,10 @@ const canonicalHost = "www.alfajordelaflor.com.br";
 const productionHosts = new Set(["alfajordelaflor.com.br", canonicalHost]);
 
 app.set("trust proxy", true);
+// Sem isto, o Express casa "/alfajor" tanto com ou sem barra final, e as
+// rotas de redirecionamento abaixo entravam em loop ao redirecionar
+// "/alfajor/" para "/alfajor/" (mesma URL) indefinidamente.
+app.set("strict routing", true);
 app.use(compression());
 
 app.use((request, response, next) => {
@@ -58,8 +62,8 @@ app.use(
   })
 );
 
-app.get("*", (request, response) => {
-  response.sendFile(path.join(__dirname, "index.html"));
+app.use((request, response) => {
+  response.status(404).sendFile(path.join(__dirname, "404.html"));
 });
 
 app.listen(port, () => {

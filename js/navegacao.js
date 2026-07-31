@@ -184,17 +184,18 @@ const showContatoSuccess = () => {
 };
 
 const formatTelefone = (value) => {
-  const digits = value.replace(/\D/g, '').slice(0, 10);
+  // DDD (2 dígitos) + celular brasileiro de 9 dígitos: (XX) XXXXX-XXXX
+  const digits = value.replace(/\D/g, '').slice(0, 11);
 
   if (digits.length <= 2) {
     return digits ? `(${digits}` : '';
   }
 
-  if (digits.length <= 6) {
+  if (digits.length <= 7) {
     return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
   }
 
-  return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
+  return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
 };
 
 const validateContatoForm = () => {

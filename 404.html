@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Página não encontrada | De La Flor</title>
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" type="image/x-icon" href="imagens/logo/alfajor-peruano.webp" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/variaveis.css" />
+  <link rel="stylesheet" href="css/tipografia.css" />
+  <style>
+    .not-found-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: radial-gradient(circle at 50% 0, rgba(255, 236, 190, 0.2), transparent 42%), var(--color-header-bg);
+      color: #fff8ea;
+      text-align: center;
+    }
+
+    .not-found-page__inner {
+      max-width: 560px;
+    }
+
+    .not-found-page__logo {
+      width: min(180px, 50vw);
+      margin: 0 auto 28px;
+      display: block;
+    }
+
+    .not-found-page__code {
+      margin: 0 0 12px;
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 8vw, 4rem);
+      line-height: 1;
+    }
+
+    .not-found-page h1 {
+      margin: 0 0 16px;
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(1.3rem, 3.4vw, 1.8rem);
+    }
+
+    .not-found-page p {
+      margin: 0 auto 28px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .not-found-page__link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 28px;
+      border-radius: 999px;
+      background: #fff8ea;
+      color: var(--color-header-bg);
+      font-family: var(--font-body);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .not-found-page__link:focus-visible {
+      outline: 2px solid #fff8ea;
+      outline-offset: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="not-found-page">
+    <div class="not-found-page__inner">
+      <img class="not-found-page__logo" src="imagens/logo/alfajor-peruano.webp" alt="De La Flor Alfajor Peruano" />
+      <p class="not-found-page__code">404</p>
+      <h1>Página não encontrada</h1>
+      <p>O endereço que você tentou acessar não existe ou foi movido.</p>
+      <a class="not-found-page__link" href="/">Voltar para o site</a>
+    </div>
+  </main>
+</body>
+
+</html>
