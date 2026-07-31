@@ -63,13 +63,13 @@
   line-height: 1.18;
 }
 
-.history-section__text h3 {
+.history-section__text p {
   margin: 0;
   font: inherit;
   color: inherit;
 }
 
-.history-section__text h3 + h3 {
+.history-section__text p + p {
   margin-top: 22px;
 }
 

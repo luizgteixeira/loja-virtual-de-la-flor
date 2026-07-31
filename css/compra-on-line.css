@@ -240,11 +240,17 @@
 
 @media (max-width: 860px) {
   .online-shop-section__carousel {
-    grid-template-columns: 1fr;
+    grid-template-columns: 34px minmax(0, 1fr) 34px;
+    gap: 12px;
   }
 
   .online-shop-section__arrow {
-    display: none;
+    width: 34px;
+    height: 46px;
+  }
+
+  .online-shop-section__arrow img {
+    height: 30px;
   }
 
   .online-shop-section__grid {
