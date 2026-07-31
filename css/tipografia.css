@@ -1,6 +1,7 @@
 @font-face {
   font-family: "Lato";
-  src: url("../fontes/Lato-Regular.ttf") format("truetype");
+  src: url("../fontes/Lato-Regular.woff2") format("woff2"),
+    url("../fontes/Lato-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -8,7 +9,8 @@
 
 @font-face {
   font-family: "Lato";
-  src: url("../fontes/Lato-Bold.ttf") format("truetype");
+  src: url("../fontes/Lato-Bold.woff2") format("woff2"),
+    url("../fontes/Lato-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -16,7 +18,8 @@
 
 @font-face {
   font-family: "Tenor Sans";
-  src: url("../fontes/TenorSans-Regular.ttf") format("truetype");
+  src: url("../fontes/TenorSans-Regular.woff2") format("woff2"),
+    url("../fontes/TenorSans-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;

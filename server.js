@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const compression = require("compression");
 const instagramFeed = require("./api/instagram-feed");
 
 const app = express();
@@ -8,6 +9,7 @@ const canonicalHost = "www.alfajordelaflor.com.br";
 const productionHosts = new Set(["alfajordelaflor.com.br", canonicalHost]);
 
 app.set("trust proxy", true);
+app.use(compression());
 
 app.use((request, response, next) => {
   const host = (request.headers.host || "").split(":")[0].toLowerCase();
@@ -38,7 +40,23 @@ app.get("/de-la-flor", (request, response) => {
   response.redirect(301, "/delaflor/");
 });
 
-app.use(express.static(__dirname));
+app.use(
+  express.static(__dirname, {
+    maxAge: "30d",
+    immutable: true,
+    setHeaders: (response, filePath) => {
+      // HTML e CSS/JS não têm nome versionado (sem hash de build), então não
+      // podem usar cache longo/imutável sem arriscar esconder atualizações
+      // de conteúdo dos visitantes recorrentes. Imagens e fontes ficam com
+      // o cache longo padrão do express.static acima.
+      if (/\.html$/i.test(filePath)) {
+        response.setHeader("Cache-Control", "no-cache");
+      } else if (/\.(css|js)$/i.test(filePath)) {
+        response.setHeader("Cache-Control", "public, max-age=3600");
+      }
+    },
+  })
+);
 
 app.get("*", (request, response) => {
   response.sendFile(path.join(__dirname, "index.html"));

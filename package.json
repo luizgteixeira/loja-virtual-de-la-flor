@@ -3,6 +3,11 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "compression": "^1.8.1",
     "express": "^4.18.3"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.3",
+    "ttf2woff2": "^8.0.1"
   }
 }
