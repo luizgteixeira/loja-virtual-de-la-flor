@@ -1,6 +1,11 @@
-// Fábrica de carrossel compartilhada por "Compre Online" e "Depoimentos".
-// Consolida navegação por setas, pontos e autoplay que antes existiam
-// duplicados em compre-on-line.js e depoimentos.js.
+// Fábrica de carrossel compartilhada por "Compre Online", "Depoimentos" e
+// "Galeria de fotos". Consolida navegação por setas, pontos e autoplay que
+// antes existiam duplicados em compre-on-line.js e depoimentos.js.
+//
+// Por padrão (pagedNavigation: false), cada clique/autoplay avança 1 item por
+// vez (comportamento original). Com pagedNavigation: true, cada clique/dot
+// avança uma "página" inteira (--Xxx-per-view itens de uma vez) — usado na
+// galeria de fotos, onde o acervo é pequeno e avançar 1 a 1 repete fotos.
 const createCarousel = (config) => {
   const {
     carouselSelector,
@@ -14,6 +19,7 @@ const createCarousel = (config) => {
     activeDotClass,
     dotAriaLabel,
     interval = 4500,
+    pagedNavigation = false,
   } = config;
 
   const carousel = carouselSelector ? document.querySelector(carouselSelector) : null;
@@ -37,6 +43,30 @@ const createCarousel = (config) => {
 
   const getMaxIndex = () => Math.max(items.length - getItemsPerView(), 0);
 
+  // Em modo paginado, cada "pagina" comeca em um multiplo de itens-por-view
+  // (a ultima pagina e ajustada para nao passar do fim). Em modo normal,
+  // pagina == indice do item, mantendo o comportamento original.
+  const getPageCount = () => {
+    if (!pagedNavigation) {
+      return getMaxIndex() + 1;
+    }
+    return Math.max(Math.ceil(items.length / getItemsPerView()), 1);
+  };
+
+  const getPageStartIndex = (pageIndex) => {
+    if (!pagedNavigation) {
+      return pageIndex;
+    }
+    return Math.min(pageIndex * getItemsPerView(), getMaxIndex());
+  };
+
+  const getCurrentPage = () => {
+    if (!pagedNavigation) {
+      return currentIndex;
+    }
+    return Math.min(Math.round(currentIndex / getItemsPerView()), getPageCount() - 1);
+  };
+
   const getStep = () => {
     const firstItem = items[0];
 
@@ -55,9 +85,10 @@ const createCarousel = (config) => {
     }
 
     const dots = dotsContainer.querySelectorAll(`.${dotClass}`);
+    const activePage = getCurrentPage();
 
     dots.forEach((dot, index) => {
-      const isActive = index === currentIndex;
+      const isActive = index === activePage;
       dot.classList.toggle(activeDotClass, isActive);
       dot.toggleAttribute("aria-current", isActive);
     });
@@ -68,6 +99,12 @@ const createCarousel = (config) => {
     currentIndex = Math.min(Math.max(index, 0), maxIndex);
     track.scrollTo({ left: getStep() * currentIndex, behavior: "smooth" });
     updateDots();
+  };
+
+  const goToPage = (pageIndex) => {
+    const pageCount = getPageCount();
+    const clampedPage = Math.min(Math.max(pageIndex, 0), pageCount - 1);
+    goToSlide(getPageStartIndex(clampedPage));
   };
 
   const stopAutoplay = () => {
@@ -87,8 +124,8 @@ const createCarousel = (config) => {
     }
 
     timer = window.setInterval(() => {
-      const nextIndex = currentIndex >= getMaxIndex() ? 0 : currentIndex + 1;
-      goToSlide(nextIndex);
+      const currentPage = getCurrentPage();
+      goToPage(currentPage >= getPageCount() - 1 ? 0 : currentPage + 1);
     }, interval);
   };
 
@@ -102,10 +139,10 @@ const createCarousel = (config) => {
       return;
     }
 
-    const slidesCount = getMaxIndex() + 1;
+    const pageCount = getPageCount();
     dotsContainer.innerHTML = "";
 
-    for (let index = 0; index < slidesCount; index += 1) {
+    for (let index = 0; index < pageCount; index += 1) {
       const dot = document.createElement("button");
       dot.className = dotClass;
       dot.type = "button";
@@ -113,7 +150,7 @@ const createCarousel = (config) => {
       dot.setAttribute("aria-label", dotAriaLabel(index));
 
       dot.addEventListener("click", () => {
-        goToSlide(index);
+        goToPage(index);
         resetAutoplay();
       });
 
@@ -128,14 +165,14 @@ const createCarousel = (config) => {
   startAutoplay();
 
   previousButton?.addEventListener("click", () => {
-    const previousIndex = currentIndex <= 0 ? getMaxIndex() : currentIndex - 1;
-    goToSlide(previousIndex);
+    const currentPage = getCurrentPage();
+    goToPage(currentPage <= 0 ? getPageCount() - 1 : currentPage - 1);
     resetAutoplay();
   });
 
   nextButton?.addEventListener("click", () => {
-    const nextIndex = currentIndex >= getMaxIndex() ? 0 : currentIndex + 1;
-    goToSlide(nextIndex);
+    const currentPage = getCurrentPage();
+    goToPage(currentPage >= getPageCount() - 1 ? 0 : currentPage + 1);
     resetAutoplay();
   });
 
