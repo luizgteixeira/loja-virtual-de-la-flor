@@ -120,6 +120,7 @@
   <link rel="stylesheet" href="css/rodape.css" media="print" onload="this.media='all'" />
   <link rel="stylesheet" href="css/nossa-historia.css" media="print" onload="this.media='all'" />
   <link rel="stylesheet" href="css/fotos.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="css/certificacao.css" media="print" onload="this.media='all'" />
   <link rel="stylesheet" href="css/compra-on-line.css" media="print" onload="this.media='all'" />
   <link rel="stylesheet" href="css/depoimentos.css" media="print" onload="this.media='all'" />
   <link rel="stylesheet" href="css/ficamos.css" media="print" onload="this.media='all'" />
@@ -128,6 +129,7 @@
     <link rel="stylesheet" href="css/rodape.css" />
     <link rel="stylesheet" href="css/nossa-historia.css" />
     <link rel="stylesheet" href="css/fotos.css" />
+    <link rel="stylesheet" href="css/certificacao.css" />
     <link rel="stylesheet" href="css/compra-on-line.css" />
     <link rel="stylesheet" href="css/depoimentos.css" />
     <link rel="stylesheet" href="css/ficamos.css" />
@@ -339,8 +341,8 @@
             <article class="photos-section__item">
               <a class="photos-section__link" href="https://www.instagram.com/alfajordelaflor/" target="_blank"
                 rel="noopener noreferrer" aria-label="Ver a De La Flor no Instagram">
-                <img class="photos-section__image" src="imagens/galeria/fotos/vestidas-branco.webp" loading="lazy"
-                  alt="Anúncio: De La Flor agora é fornecedora homologada pela Vestidas de Branco" />
+                <img class="photos-section__image" src="imagens/galeria/fotos/caixa-presente-laco.webp"
+                  loading="lazy" alt="Caixa-presente De La Flor com laço, indicação para momentos especiais" />
               </a>
             </article>
 
@@ -410,7 +412,62 @@
         <div class="photos-section__dots" aria-label="Controle de fotos"></div>
       </div>
     </section>
-  
+
+    <section id="certificacao" class="trust-section" aria-labelledby="trust-title">
+      <div class="trust-section__stage">
+        <div class="trust-section__copy">
+          <img class="trust-section__badge" src="imagens/galeria/vestidas-branco/trust16-selo.webp"
+            alt="Selo TRUST16 - Empresa certificada, qualidade e confiança na prestação de serviços" loading="lazy" />
+          <span class="trust-section__eyebrow">Novidade</span>
+          <h2 class="trust-section__title" id="trust-title">Fornecedor homologado Vestidas de Branco</h2>
+          <p class="trust-section__text">
+            A partir de agora, a De La Flor é um fornecedor homologado pela Vestidas de Branco, rede que avalia
+            anualmente 16 indicadores financeiros, jurídicos e qualitativos de cada parceiro através do Certificado
+            Trust. Isso garante mais qualidade, segurança e transparência para tornar o seu casamento perfeito.
+          </p>
+        </div>
+
+        <div class="trust-section__carousel" aria-label="Publicação sobre a homologação Vestidas de Branco">
+          <button class="trust-section__arrow trust-section__arrow--previous" type="button"
+            aria-label="Slide anterior">
+            <img src="imagens/galeria/compre-on-line/path71.png" alt="" aria-hidden="true" loading="lazy" />
+          </button>
+
+          <div class="trust-section__grid" id="trust-photos">
+            <article class="trust-section__item">
+              <img class="trust-section__image" src="imagens/galeria/vestidas-branco/homologacao-anuncio.webp"
+                loading="lazy"
+                alt="Anúncio: De La Flor agora é fornecedor homologado pela Vestidas de Branco" />
+            </article>
+
+            <article class="trust-section__item">
+              <img class="trust-section__image" src="imagens/galeria/vestidas-branco/homologacao-qualidade.webp"
+                loading="lazy"
+                alt="Isso garante mais qualidade, segurança e transparência para tornar o seu casamento perfeito" />
+            </article>
+
+            <article class="trust-section__item">
+              <img class="trust-section__image"
+                src="imagens/galeria/vestidas-branco/homologacao-certificado-trust.webp" loading="lazy"
+                alt="A Vestidas de Branco é uma rede de fornecedores homologados através do Certificado Trust, que avalia 16 indicadores financeiros, jurídicos e qualitativos anualmente" />
+            </article>
+
+            <article class="trust-section__item">
+              <img class="trust-section__image" src="imagens/galeria/vestidas-branco/homologacao-seguranca.webp"
+                loading="lazy"
+                alt="Os clientes se sentem muito mais seguros na contratação de fornecedores homologados pela Vestidas de Branco" />
+            </article>
+          </div>
+
+          <button class="trust-section__arrow trust-section__arrow--next" type="button" aria-label="Próximo slide">
+            <img src="imagens/galeria/compre-on-line/path70.png" alt="" aria-hidden="true" loading="lazy" />
+          </button>
+        </div>
+
+        <div class="trust-section__dots" aria-label="Controle do carrossel"></div>
+      </div>
+    </section>
+
     <!--
     <section id="loja" class="online-shop-section" aria-labelledby="online-shop-title">
       <div class="online-shop-section__inner">
@@ -816,6 +873,7 @@
   <script src="js/parallax-sobre.js" defer></script>
   <script src="js/dados/carrossel.js" defer></script>
   <script src="js/dados/fotos.js" defer></script>
+  <script src="js/dados/certificacao.js" defer></script>
   <script src="js/dados/compre-on-line.js" defer></script>
   <script src="js/dados/depoimentos.js" defer></script>
 </body>
