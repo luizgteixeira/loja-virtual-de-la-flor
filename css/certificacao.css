@@ -185,6 +185,10 @@
     width: min(100%, 420px);
     margin-inline: auto;
   }
+
+  .trust-section__dots {
+    grid-column: 1;
+  }
 }
 
 @media (max-width: 520px) {
