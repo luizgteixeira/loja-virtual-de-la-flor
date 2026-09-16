@@ -73,6 +73,7 @@
   position: relative;
   width: 100%;
   margin-bottom: 24px;
+  padding-top: 16px;
 }
 
 /* Ícone redondo */
@@ -80,7 +81,7 @@
 .campo-icone__imagem {
   position: absolute;
   left: 0;
-  top: 16px;
+  top: 32px;
   transform: translateY(-50%);
 
   width: 22px;
@@ -120,7 +121,57 @@ textarea::placeholder {
   border-bottom-color: var(--color-wine-deep);
 }
 
+/* Rótulo flutuante: começa em cima do texto do campo e sobe quando o campo
+   é preenchido ou recebe foco, para o visitante nunca perder de vista qual
+   dado cada campo pede (o placeholder some ao digitar, o rótulo não). */
+.campo-icone label,
+.campo-textarea label {
+  position: absolute;
+  left: 32px;
+  top: 32px;
+  transform: translateY(-50%);
+
+  font-size: 15px;
+  color: var(--color-wine-deep);
+  font-weight: 400;
+  font-family: "Lato", sans-serif;
+  opacity: 0.55;
+
+  pointer-events: none;
+  transition: top 160ms ease, transform 160ms ease, font-size 160ms ease, opacity 160ms ease;
+}
+
+.campo-icone input:focus+label,
+.campo-icone input:not(:placeholder-shown)+label {
+  top: 0;
+  transform: translateY(0);
+  font-size: 11px;
+  opacity: 0.85;
+}
+
 /* Caixa de comentário */
+.campo-textarea {
+  position: relative;
+  width: 100%;
+  padding-top: 16px;
+}
+
+.campo-textarea label {
+  left: 18px;
+  top: 42px;
+}
+
+.campo-textarea textarea:focus+label,
+.campo-textarea textarea:not(:placeholder-shown)+label {
+  top: 16px;
+  left: 12px;
+  transform: translateY(0);
+  font-size: 11px;
+  opacity: 0.85;
+  background-color: var(--color-surface-muted);
+  padding: 0 6px;
+}
+
 textarea {
   width: 100%;
   height: 200px;

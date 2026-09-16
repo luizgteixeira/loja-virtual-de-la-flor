@@ -733,59 +733,61 @@
         method="post" enctype="text/plain" aria-describedby="contato-description">
         <div class="coluna-form coluna-esquerda">
           <div class="campo-icone">
-            <label class="sr-only" for="nome">Nome Completo *</label>
             <img class="campo-icone__imagem" src="imagens/galeria/formulario/IconesSiteDeLaFlor-01.png" alt=""
               aria-hidden="true" loading="lazy" />
-            <input id="nome" type="text" name="nome" placeholder="Nome Completo *" aria-label="Nome completo"
+            <input id="nome" type="text" name="nome" placeholder=" " aria-label="Nome completo"
               aria-required="true" required />
+            <label for="nome">Nome Completo *</label>
           </div>
 
           <div class="campo-icone">
-            <label class="sr-only" for="email">Email *</label>
             <img class="campo-icone__imagem" src="imagens/galeria/formulario/IconesSiteDeLaFlor-02.png" alt=""
               aria-hidden="true" loading="lazy" />
-            <input id="email" type="email" name="email" placeholder="Email *" aria-label="Email" aria-required="true"
+            <input id="email" type="email" name="email" placeholder=" " aria-label="Email" aria-required="true"
               required />
+            <label for="email">Email *</label>
           </div>
 
           <div class="campo-icone">
-            <label class="sr-only" for="tipo_evento">Tipo de evento *</label>
             <img class="campo-icone__imagem" src="imagens/galeria/formulario/IconesSiteDeLaFlor-03.png" alt=""
               aria-hidden="true" loading="lazy" />
-            <input id="tipo_evento" type="text" name="tipo_evento" placeholder="Tipo de evento *"
+            <input id="tipo_evento" type="text" name="tipo_evento" placeholder=" "
               aria-label="Tipo de evento" aria-required="true" required />
+            <label for="tipo_evento">Tipo de evento *</label>
           </div>
 
           <div class="campo-icone">
-            <label class="sr-only" for="data_local">Data, Cidade e Local *</label>
             <img class="campo-icone__imagem" src="imagens/galeria/formulario/IconesSiteDeLaFlor-04.png" alt=""
               aria-hidden="true" loading="lazy" />
-            <input id="data_local" type="text" name="data_local" placeholder="Data / Cidade / Local *"
+            <input id="data_local" type="text" name="data_local" placeholder=" "
               aria-label="Data, cidade e local" aria-required="true" required />
+            <label for="data_local">Data, Cidade e Local *</label>
           </div>
 
           <div class="campo-icone">
-            <label class="sr-only" for="cerimonial">Cerimonial ou Produtora *</label>
             <img class="campo-icone__imagem" src="imagens/galeria/formulario/IconesSiteDeLaFlor-05.png" alt=""
               aria-hidden="true" loading="lazy" />
-            <input id="cerimonial" type="text" name="cerimonial" placeholder="Cerimonial / Produtora *"
+            <input id="cerimonial" type="text" name="cerimonial" placeholder=" "
               aria-label="Cerimonial ou produtora" aria-required="true" required />
+            <label for="cerimonial">Cerimonial ou Produtora *</label>
           </div>
 
           <div class="campo-icone">
-            <label class="sr-only" for="telefone">Telefone ou WhatsApp *</label>
             <img class="campo-icone__imagem" src="imagens/galeria/formulario/IconesSiteDeLaFlor-06.png" alt=""
               aria-hidden="true" loading="lazy" />
-            <input id="telefone" type="tel" name="telefone" placeholder="Telefone / Whatsapp *"
+            <input id="telefone" type="tel" name="telefone" placeholder=" "
               aria-label="Telefone ou WhatsApp" inputmode="numeric" maxlength="15"
               pattern="\([0-9]{2}\) [0-9]{5}-[0-9]{4}" aria-required="true" required />
+            <label for="telefone">Telefone ou WhatsApp *</label>
           </div>
         </div>
 
         <div class="coluna-form coluna-direita">
-          <label class="sr-only" for="comentario">Comentário *</label>
-          <textarea id="comentario" name="comentario" placeholder="Comentário *" aria-label="Comentário"
-            aria-required="true" required></textarea>
+          <div class="campo-textarea">
+            <textarea id="comentario" name="comentario" placeholder=" " aria-label="Comentário"
+              aria-required="true" required></textarea>
+            <label for="comentario">Comentário *</label>
+          </div>
 
           <div class="opcoes-form">
             <label>
