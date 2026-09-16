@@ -2,6 +2,24 @@
 <html lang="pt-BR">
 
 <head>
+  <!-- Consentimento de cookies (Google Consent Mode) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      wait_for_update: 500
+    });
+    try {
+      if (window.localStorage.getItem('cookie_consent') === 'granted') {
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+      }
+    } catch (error) {}
+  </script>
+  <!-- Fim consentimento de cookies -->
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -17,6 +35,7 @@
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/variaveis.css" />
   <link rel="stylesheet" href="css/tipografia.css" />
+  <link rel="stylesheet" href="css/cookie-consent.css" />
   <style>
     .not-found-page {
       min-height: 100vh;
@@ -95,6 +114,20 @@
       <a class="not-found-page__link" href="/">Voltar para o site</a>
     </div>
   </main>
+
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
+    <p class="cookie-banner__texto">
+      Usamos cookies do Google Analytics para entender como você usa o site. Você pode aceitar ou
+      recusar, sem prejuízo para a navegação. Saiba mais na nossa
+      <a href="/politica-de-privacidade/">Política de Privacidade</a>.
+    </p>
+    <div class="cookie-banner__acoes">
+      <button id="cookie-banner-recusar" type="button" class="cookie-banner__botao cookie-banner__botao--recusar">Recusar</button>
+      <button id="cookie-banner-aceitar" type="button" class="cookie-banner__botao cookie-banner__botao--aceitar">Aceitar</button>
+    </div>
+  </div>
+
+  <script src="/js/cookie-consent.js" defer></script>
 </body>
 
 </html>
