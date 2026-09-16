@@ -233,7 +233,7 @@ const enviarContatoPorEmail = () => {
   }
 
   showContatoSuccess();
-  (window.dataLayer = window.dataLayer || []).push({ event: 'generate_lead' });
+  (window.dataLayer = window.dataLayer || []).push({ event: 'formulario_contato_enviado' });
 
   const mailtoUrl = buildContatoMailto();
   window.setTimeout(() => {
