@@ -234,7 +234,11 @@ const enviarContatoPorEmail = () => {
 
   showContatoSuccess();
   (window.dataLayer = window.dataLayer || []).push({ event: 'generate_lead' });
-  window.location.href = buildContatoMailto();
+
+  const mailtoUrl = buildContatoMailto();
+  window.setTimeout(() => {
+    window.location.href = mailtoUrl;
+  }, 250);
 };
 
 const limparFormularioContato = () => {
