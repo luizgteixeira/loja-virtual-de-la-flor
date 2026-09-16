@@ -233,6 +233,7 @@ const enviarContatoPorEmail = () => {
   }
 
   showContatoSuccess();
+  (window.dataLayer = window.dataLayer || []).push({ event: 'generate_lead' });
   window.location.href = buildContatoMailto();
 };
 
@@ -274,5 +275,12 @@ if (contatoForm) {
   contatoForm.addEventListener('submit', (event) => {
     event.preventDefault();
     enviarContatoPorEmail();
+  });
+}
+
+const emailContatoLink = document.querySelector('.icone-email');
+if (emailContatoLink) {
+  emailContatoLink.addEventListener('click', () => {
+    (window.dataLayer = window.dataLayer || []).push({ event: 'contato_email' });
   });
 }
