@@ -10,4 +10,5 @@ createCarousel({
   activeDotClass: "testimonials-section__dot--active",
   dotAriaLabel: (index) => `Mostrar depoimento ${index + 1}`,
   interval: 4500,
+  pagedNavigation: true,
 });
