@@ -133,7 +133,7 @@ Pontos técnicos relevantes:
 | `api/instagram-feed.js` | Endpoint seguro que busca mídias recentes no Instagram (token fica só no backend). |
 | `js/instagram-feed.js` | Consumiria o endpoint acima e substituiria os cards estáticos por fotos reais — hoje não é carregado pelo `index.html`. |
 | `js/cookie-consent.js` | Exibe o banner de cookies e atualiza o Google Consent Mode conforme a escolha do visitante. |
-| `js/navegacao.js` | Menu mobile, botão voltar ao topo, validação e envio do formulário de contato. |
+| `js/navegacao.js` | Menu mobile, botão voltar ao topo, validação e envio do formulário de contato, eventos de conversão para o GA4 (ver [Eventos de Conversão](#eventos-de-conversão-ga4)). |
 | `js/parallax-sobre.js` | Movimento parallax da seção Nossa História. |
 | `js/dados/carrossel.js` | Fábrica `createCarousel()` compartilhada pelos carrosséis de fotos, depoimentos, certificação e loja. |
 | `js/dados/fotos.js`, `depoimentos.js`, `certificacao.js`, `compre-on-line.js` | Inicializam cada carrossel chamando `createCarousel()` com os seletores da sua seção. |
@@ -183,6 +183,17 @@ Nunca coloque `INSTAGRAM_ACCESS_TOKEN` em HTML, CSS, JavaScript público ou comm
 ## Cookies e Google Tag Manager
 
 O site carrega o Google Tag Manager (`GTM-MGVL3J9N`) com o Google Consent Mode configurado para negar `analytics_storage` por padrão. Ao abrir o site, o visitante vê um banner (`js/cookie-consent.js` + `css/cookie-consent.css`) para aceitar ou recusar cookies de analytics; a escolha fica salva em `localStorage` e não é pedida novamente. O link para a Política de Privacidade (`/politica-de-privacidade/`) aparece no banner e no rodapé.
+
+### Eventos de Conversão (GA4)
+
+`js/navegacao.js` envia dois eventos para o `dataLayer`, consumidos pelo GTM/GA4:
+
+| Evento | Disparado quando |
+| --- | --- |
+| `formulario_contato_enviado` | o visitante envia o formulário de contato com sucesso |
+| `contato_email` | o visitante clica no ícone de e-mail do rodapé |
+
+Como o Consent Mode nega `analytics_storage` até o visitante aceitar os cookies, esses eventos só são efetivamente contabilizados no GA4 depois do aceite no banner.
 
 ## Como Rodar
 
